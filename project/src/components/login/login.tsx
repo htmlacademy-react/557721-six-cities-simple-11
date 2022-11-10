@@ -1,10 +1,8 @@
-import {LoginScreenHeader, LoginScreenMain} from '../../pages/login-screen/login-screen';
+import LoginScreen from '../../pages/login-screen/login-screen';
 
 export function Login(): JSX.Element {
   return(
-    <><LoginScreenHeader />
-      <LoginScreenMain />
-    </>
+    <LoginScreen />
   );
 }
 
