@@ -1,5 +1,8 @@
+import {City} from './city';
+
 export type OfferType = {
     id:number;
+    city:City;
     images:string[];
     isPremium: boolean;
     previewImage: string;
