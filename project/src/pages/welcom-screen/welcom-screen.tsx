@@ -3,13 +3,16 @@ import {Helmet} from 'react-helmet-async';
 import ListCards from '../../components/ListCards/ListCards';
 import HeaderLogo from '../../components/headerLogo/headerLogo';
 import {OfferType} from '../../types/offer';
+import {City} from '../../types/city';
 
 
 type OffersPage = {
   offers: OfferType[];
+  cities: City[];
 };
 
-function WelcomScreenMain({offers}:OffersPage): JSX.Element {
+function WelcomScreenMain({offers, cities}:OffersPage): JSX.Element {
+  const city = cities[0];
   return(
     <React.Fragment>
       <Helmet>
@@ -77,7 +80,7 @@ function WelcomScreenMain({offers}:OffersPage): JSX.Element {
             </ul>
           </section>
         </div>
-        <ListCards offers={offers}/>
+        <ListCards offers={offers} city={city}/>
       </main>
     </React.Fragment>
   );

@@ -3,6 +3,14 @@ import {OfferType} from '../types/offer';
 export const offers: OfferType[] = [
   {
     id:1,
+    city: {
+      location: {
+        lat: 52.370216,
+        lng: 4.895168,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
     previewImage: 'https://cdn.worldota.net/t/1024x768/content/ca/af/caafb0f5e3257be759f8bd3882a3db9440c65d83.jpeg',
     images: [
       'https://cdn.worldota.net/t/1024x768/content/c9/67/c96725bc7627207d4ccfaef8b4e8f245164a032d.jpeg',
@@ -30,14 +38,22 @@ export const offers: OfferType[] = [
       name:'Maryan',
     },
     description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
-    location:{
-      latitude: 123,
-      longitude: 123,
-      zoom: 10,
-    },
+    location: {
+      latitude: 52.3763943,
+      longitude: 4.900419,
+      zoom: 6,
+    }
   },
   {
     id:2,
+    city: {
+      location: {
+        lat: 52.370216,
+        lng: 4.895168,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
     images: [
       'https://cdn.worldota.net/t/1024x768/content/84/10/8410134e1db28e4c31639b9b4ce6acab8f104be0.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/8c/01/8c011a0295895b2ca1c7d96d1311d9bada4330dd.jpeg',
@@ -65,14 +81,22 @@ export const offers: OfferType[] = [
       name:'Entier',
     },
     description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
-    location:{
-      latitude: 123,
-      longitude: 123,
-      zoom: 10,
-    },
+    location: {
+      latitude: 52.372805,
+      longitude: 4.889829,
+      zoom: 6,
+    }
   },
   {
     id:3,
+    city: {
+      location: {
+        lat: 52.370216,
+        lng: 4.895168,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
     images: [
       'https://cdn.worldota.net/t/1024x768/content/45/11/4511ae76c0b756a7d806b3f8ef7c42d24eeb9a8b.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/1a/7d/1a7df3075f7e607c3d10048979d9a4f3a9598a03.jpeg',
@@ -100,14 +124,22 @@ export const offers: OfferType[] = [
       name:'Eve',
     },
     description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
-    location:{
-      latitude: 123,
-      longitude: 123,
-      zoom: 10,
-    },
+    location: {
+      latitude: 52.361531,
+      longitude: 4.882910,
+      zoom: 6,
+    }
   },
   {
     id:4,
+    city: {
+      location: {
+        lat: 52.370216,
+        lng: 4.895168,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
     images: [
       'https://cdn.worldota.net/t/1024x768/content/46/b6/46b65edf5b6f42cbcca67aeb6a0aa21f3ef9fd1c.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/97/ba/97ba6bc318755046dc0b6bfef21a9006c2c8aefd.jpeg',
@@ -136,14 +168,22 @@ export const offers: OfferType[] = [
       name:'Emma',
     },
     description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
-    location:{
-      latitude: 123,
-      longitude: 123,
-      zoom: 10,
-    },
+    location: {
+      latitude: 52.370213,
+      longitude: 4.903213,
+      zoom: 6,
+    }
   },
   {
     id:5,
+    city: {
+      location: {
+        lat: 52.370216,
+        lng: 4.895168,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
     images: [
       'https://cdn.worldota.net/t/1024x768/ostrovok/2a/2c/2a2c93ced6a366eb08335a8480ba6db17e09ac34.png',
       'https://cdn.worldota.net/t/1024x768/ostrovok/54/a9/54a91660e871e7053e357084517941223378a501.png',
@@ -172,14 +212,22 @@ export const offers: OfferType[] = [
       name:'Julia',
     },
     description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
-    location:{
-      latitude: 123,
-      longitude: 123,
-      zoom: 10,
-    },
+    location: {
+      latitude: 52.370911,
+      longitude: 4.895519,
+      zoom: 6,
+    }
   },
   {
     id:6,
+    city: {
+      location: {
+        lat: 52.370216,
+        lng: 4.895168,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
     images: [
       'https://cdn.worldota.net/t/1024x768/content/6b/54/6b5443ad3d59874ca6c1229136cb8fb405c89fb7.jpeg',
       'https://cdn.worldota.net/t/1024x768/content/57/4c/574c97038db8a9d90deeb04862554403f02ef880.jpeg',
@@ -207,10 +255,10 @@ export const offers: OfferType[] = [
       name:'Sara',
     },
     description:'Пятизвездочный отель NH Barbizon Palace располагается напротив железнодорожного вокзала в самом центре Амстердама. Такие достопримечательности, как церковь Святого Николая, Общественная Амстердамская библиотека и площадь Дам, находятся в нескольких минутах ходьбы от отеля.',
-    location:{
-      latitude: 123,
-      longitude: 123,
-      zoom: 10,
-    },
+    location: {
+      latitude: 52.377007,
+      longitude: 4.897850,
+      zoom: 6,
+    }
   },
 ];

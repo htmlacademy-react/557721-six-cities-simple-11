@@ -1,17 +1,25 @@
 import { useState } from 'react';
 import { OfferType } from '../../types/offer';
 import OfferCards from '../../components/OfferCards/OfferCards';
+import Map from '../map/map';
+import {City} from '../../types/city';
 
 type Offers = {
     offers: OfferType[];
+    city: City;
 }
 
-function ListCards({offers}:Offers): JSX.Element {
-  const [, setActiveCard] = useState('');
-  const handleActiveCard = (card:OfferType): void =>{
-    setActiveCard(card.id.toString());
+function ListCards({offers, city}:Offers): JSX.Element {
+  const [activeCard, setActiveCard] = useState<OfferType | undefined>(undefined);
+  const handleActiveCard = (card: OfferType):void => {
+    setActiveCard(card);
   };
-  const componentOffer = offers.map((offer) =><OfferCards key={offer.id} offer={offer} onActiveChange={handleActiveCard}/>);
+
+  const componentOffer = offers.map((offer) => (
+    <article className="cities__card place-card" key={offer.id} onMouseOver={() => handleActiveCard(offer)}>
+      <OfferCards offer={offer}/>
+    </article>));
+
   return(
     <div className="cities">
       <div className="cities__places-container container">
@@ -37,7 +45,11 @@ function ListCards({offers}:Offers): JSX.Element {
             {componentOffer}
           </div>
         </section>
-        <div className="cities__right-section"><section className="cities__map map" /></div>
+        <div className="cities__right-section">
+          <section className="cities__map map">
+            <Map offers={offers} activeCard={activeCard} city={city}/>
+          </section>
+        </div>
       </div>
     </div>
   );
