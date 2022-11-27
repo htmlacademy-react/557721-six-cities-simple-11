@@ -5,8 +5,8 @@ export const offers: OfferType[] = [
     id:1,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.3763943,
+        longitude: 4.900419,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -48,8 +48,8 @@ export const offers: OfferType[] = [
     id:2,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.372805,
+        longitude: 4.889829,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -91,8 +91,8 @@ export const offers: OfferType[] = [
     id:3,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.361531,
+        longitude: 4.882910,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -134,8 +134,8 @@ export const offers: OfferType[] = [
     id:4,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.370213,
+        longitude: 4.903213,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -178,8 +178,8 @@ export const offers: OfferType[] = [
     id:5,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.370911,
+        longitude: 4.895519,
         zoom: 10,
       },
       name: 'Amsterdam',
@@ -222,8 +222,8 @@ export const offers: OfferType[] = [
     id:6,
     city: {
       location: {
-        lat: 52.370216,
-        lng: 4.895168,
+        latitude: 52.377007,
+        longitude: 4.897850,
         zoom: 10,
       },
       name: 'Amsterdam',

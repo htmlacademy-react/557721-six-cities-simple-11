@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import {Helmet} from 'react-helmet-async';
+import {useParams} from 'react-router-dom';
+import NotFoundScreen from '../../pages/not-fount-screen/not-found-screen';
 import HeaderLogo from '../../components/headerLogo/headerLogo';
 import {OfferType} from '../../types/offer';
-import NotFoundScreen from '../../pages/not-fount-screen/not-found-screen';
-import { useParams } from 'react-router-dom';
 import {Review} from '../../types/review';
 import Reviews from '../../components/reviews/reviews';
 import {calculateRating} from '../../components/function/settings';
+import OfferCards from '../../components/OfferCards/OfferCards';
+import Map from '../../components/map/map';
 
 type Offers = {
   offers: OfferType[];
@@ -15,16 +17,16 @@ type Offers = {
 
 function RoomScreen({offers, reviews}: Offers): JSX.Element {
   const params = useParams();
-  const offer = offers.find((vl)=> vl.id.toString() === params.id);
-  if (!offer) {
+  const presentOffer = offers.find((vl)=> vl.id.toString() === params.id);
+  if (!presentOffer) {
     return (
       <NotFoundScreen />
     );
   }
   const currentReviews:Review[] = [];
-  reviews.forEach((review)=> review.idHostel === offer.id ? currentReviews.push(review) : false);
+  reviews.forEach((review)=> review.idHostel === presentOffer.id ? currentReviews.push(review) : false);
 
-  const {title, typeOfplacement, price, images, isPremium, rating, bedrooms, maxAduts, insides, host, description} = offer;
+  const {title, typeOfplacement, price, images, isPremium, rating, bedrooms, maxAduts, insides, host, description} = presentOffer;
 
   const propertyImages = images.map((image) => (
     <div className="property__image-wrapper" key={image}>
@@ -35,6 +37,7 @@ function RoomScreen({offers, reviews}: Offers): JSX.Element {
   const conveniences = insides.map((inside) =>(
     <li className="property__inside-item" key={inside}>{inside}</li>
   ));
+  const nextOffers = offers.filter((offer)=>offer.id !== presentOffer.id);
 
   return(
     <div className="page">
@@ -131,92 +134,20 @@ function RoomScreen({offers, reviews}: Offers): JSX.Element {
               <Reviews reviews={currentReviews} />
             </div>
           </div>
-          <section className="property__map map"></section>
+          <section className="property__map map">
+            <Map offers={nextOffers} activeCard={presentOffer} city={presentOffer.city} newMap="property"/>
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              <article className="near-places__card place-card">
-                <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="/">
-                    <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="image"/>
-                  </a>
-                </div>
-                <div className="place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;80</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={{width: '80%'}}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <a href="/">Wood and stone place</a>
-                  </h2>
-                  <p className="place-card__type">Private room</p>
-                </div>
-              </article>
-
-              <article className="near-places__card place-card">
-                <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="/">
-                    <img className="place-card__image" src="img/apartment-02.jpg" width="260" height="200" alt="image"/>
-                  </a>
-                </div>
-                <div className="place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;132</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={{width: `${calculateRating(rating)}% `}}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <a href="/">Canal View Prinsengracht</a>
-                  </h2>
-                  <p className="place-card__type">Apartment</p>
-                </div>
-              </article>
-
-              <article className="near-places__card place-card">
-                <div className="place-card__mark">
-                  <span>Premium</span>
-                </div>
-                <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="/">
-                    <img className="place-card__image" src="img/apartment-03.jpg" width="260" height="200" alt="image"/>
-                  </a>
-                </div>
-                <div className="place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;180</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={{width: `${calculateRating(rating)}% `}}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <a href="/">Nice, cozy, warm big bed apartment</a>
-                  </h2>
-                  <p className="place-card__type">Apartment</p>
-                </div>
-              </article>
+              {
+                nextOffers.map((nextOffer) =>(
+                  <article className="near-places__card place-card" key={nextOffer.id}>
+                    <OfferCards offer={nextOffer} newCard="near-places"/>
+                  </article>))
+              }
             </div>
           </section>
         </div>

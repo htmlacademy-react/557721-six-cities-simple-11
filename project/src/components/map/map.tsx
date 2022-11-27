@@ -10,6 +10,7 @@ type PageProps = {
   offers: OfferType[];
   activeCard: OfferType | undefined;
   city: City;
+  newMap:string;
 }
 
 const defaultCustomIcon = new Icon({
@@ -24,9 +25,10 @@ const currentCustomIcon = new Icon({
   iconAnchor: [20, 40]
 });
 
-function Map({offers, activeCard, city}: PageProps): JSX.Element {
+function Map({offers, activeCard, city, newMap}: PageProps): JSX.Element {
+  const {location} = city;
   const mapRef = useRef(null);
-  const map = useMap(mapRef, city.location);
+  const map = useMap(mapRef, location);
 
   useEffect(() => {
     if (map) {
@@ -46,7 +48,8 @@ function Map({offers, activeCard, city}: PageProps): JSX.Element {
       });
     }
   }, [map, offers, activeCard]);
-  return <div style={{height: '700px'}} ref={mapRef}></div>;
+  return <section className={`${newMap}__map map`} ref={mapRef}></section>;
+
 }
 
 export default Map;
